@@ -1,0 +1,3 @@
+﻿  源.c
+D:\C_develop\code\practice\Project10_21\Project10_21\源.c(11,9): warning C4477: “scanf”: 格式字符串“%d”需要类型“int *”的参数，但可变参数 1 拥有了类型“int”
+  Project10_21.vcxproj -> D:\C_develop\code\practice\Project10_21\Project10_21\x64\Debug\Project10_21.exe
