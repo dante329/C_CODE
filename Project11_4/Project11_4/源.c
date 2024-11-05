@@ -107,39 +107,113 @@
 //函数指针数组		int (*funcs[3])(int, int);	一个数组，包含 3 个函数指针
 //函数指针数组的指针	int (*(*p)[3])(int, int);	一个指针，指向一个函数指针数组，该数组包含 3 个函数指针
 
-#include <stdio.h>
+//#include <stdio.h>
 
-void bubbleSort(int arr[], int n) {
-    for (int i = 0; i < n - 1; i++) {
-        for (int j = 0; j < n - i - 1; j++) {
-            if (arr[j] > arr[j + 1]) {
-                // 交换 arr[j] 和 arr[j + 1]
-                int temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
-            }
-        }
-    }
-}
+//冒泡排序
+//
+//void bubbleSort(int arr[], int n) {
+//    for (int i = 0; i < n - 1; i++) {
+//        for (int j = 0; j < n - i - 1; j++) {
+//            if (arr[j] > arr[j + 1]) {
+//                // 交换 arr[j] 和 arr[j + 1]
+//                int temp = arr[j];
+//                arr[j] = arr[j + 1];
+//                arr[j + 1] = temp;
+//            }
+//        }
+//    }
+//}
+//
+//void printArray(int arr[], int n) {
+//    for (int i = 0; i < n; i++) {
+//        printf("%d ", arr[i]);
+//    }
+//    printf("\n");
+//}
+//
+//int main() {
+//    int arr[] = { 64, 34, 25, 12, 22, 11, 90 ,2};
+//    int n = sizeof(arr) / sizeof(arr[0]);
+//
+//    printf("排序前的数组: ");
+//    printArray(arr, n);
+//
+//    bubbleSort(arr, n);
+//
+//    printf("排序后的数组: ");
+//    printArray(arr, n);
+//
+//    return 0;
+//}
 
-void printArray(int arr[], int n) {
-    for (int i = 0; i < n; i++) {
-        printf("%d ", arr[i]);
-    }
-    printf("\n");
-}
 
-int main() {
-    int arr[] = { 64, 34, 25, 12, 22, 11, 90 ,2};
-    int n = sizeof(arr) / sizeof(arr[0]);
+//冒泡排序改进（已经排序好了的情况就不执行程序）
+//void bubbleSort(int arr[],int sz)
+//{
+//    int i = 0;
+//    int flag = 1;//设立一个flag 看是否发生了元素的交换 如果交换了flag就会被改变
+//    for (i = 0; i < sz - 1; i++)
+//    {
+//        int j = 0;
+//        
+//        for (j = 0; j < sz - 1 - i; j++)
+//        {
+//            if (arr[j] > arr[j + 1])
+//            {
+//                int temp = arr[j];
+//                arr[j] = arr[j + 1];
+//                arr[j + 1] = temp;
+//                flag = 0;//如果进入了这个if交换了元素就flag=0
+//            }
+//        }
+//        if (flag == 1)//在第一次循环结束后判断flag有没有被改变
+//        {
+//            break;
+//        }
+//    }
+//}
+//
+//int main()
+//{
+//    int arr[10] = { 9,8,7,6,5,4,3,2,1,0 };
+//    int sz = sizeof(arr) / sizeof(arr[0]);
+//    bubbleSort(arr,sz);
+//    int i = 0;
+//    for (i = 0; i < sz; i++)
+//    {
+//        printf("%d ", arr[i]);
+//    }
+//    return 0;
+//}
 
-    printf("排序前的数组: ");
-    printArray(arr, n);
 
-    bubbleSort(arr, n);
+//qsort函数（是一个标准库函数，需要导入stdlib.h）
+//void qsort( void *base,
+//			  size_t num, 
+//			  size_t width,
+//			  int (__cdecl *compare )(const void *elem1, const void *elem2 ) );
 
-    printf("排序后的数组: ");
-    printArray(arr, n);
+//#include <stdlib.h>
 
-    return 0;
-}
+//cmp函数编写
+//int cmp_int(const void* e1,const void* e2)
+//{
+//	return (*(int*)e1) - (*(int*)e2);
+//}
+//
+//void printArray(int arr[], int n) {
+//	for (int i = 0; i < n; i++) {
+//		printf("%d ", arr[i]);
+//	}
+//	printf("\n");
+//}
+//
+//int main()
+//{
+//	int arr[10] = { 9,8,7,6,5,4,3,2,1,0 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	qsort(arr,sz,sizeof(arr[0]),cmp_int);
+//	printArray(arr, sz);
+//	return 0;
+//}
+
