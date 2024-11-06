@@ -1,0 +1,6 @@
+﻿  源.c
+D:\C_develop\code\practice\Project11_5\Project11_5\源.c(81,9): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“int (*)[5]”
+D:\C_develop\code\practice\Project11_5\Project11_5\源.c(81,9): warning C4313: "printf": 格式字符串中的 "%d" 与类型为 "int (*)[5]" 的参数 1 冲突
+D:\C_develop\code\practice\Project11_5\Project11_5\源.c(82,9): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“int *”
+D:\C_develop\code\practice\Project11_5\Project11_5\源.c(82,9): warning C4313: "printf": 格式字符串中的 "%d" 与类型为 "int *" 的参数 1 冲突
+  Project11_5.vcxproj -> D:\C_develop\code\practice\Project11_5\x64\Debug\Project11_5.exe
