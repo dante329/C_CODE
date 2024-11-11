@@ -101,7 +101,7 @@ int KMP(char* str, char* sub, int start)
 		}
 		else
 		{
-			j = next[j];
+			j = next[j];//j在匹配失败后要跳转，可能会跳到next[0]即-1的位置，那么sub[j]会越界，所以在上面添加了j == -1的判断条件 
 		}
 	}
 	free(next);
