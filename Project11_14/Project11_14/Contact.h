@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <assert.h>
+#include <stdlib.h>
 
 //定义结构体
 typedef struct PeoInfo
@@ -28,8 +29,17 @@ typedef struct Contact
 } Contact;
 
 //函数声明
+
+void InitContact(Contact*);
+
 void Contact_Add(Contact*);
 
 void Contact_Print(Contact*);
 
-void InitContact(Contact*);
+void Contact_Del(Contact*);
+
+void Contact_Search(Contact*);
+
+void Contact_Modify(Contact*);
+
+void Contact_Sort(Contact*);

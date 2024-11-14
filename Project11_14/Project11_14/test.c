@@ -5,9 +5,6 @@
 //实现通讯录，菜单，添加，查询，修改，排序，打印，退出
 
 
-
-
-
 void menu()
 {
 	printf("************************************\n");
@@ -35,17 +32,22 @@ int main()
 			Contact_Add(&con);
 			break;
 		case 2:
+			Contact_Del(&con);
 			break;
 		case 3:
+			Contact_Modify(&con);
 			break;
 		case 4:
 			Contact_Print(&con);
 			break;
 		case 5:
+			Contact_Sort(&con);
 			break;
 		case 6:
+			Contact_Search(&con);
 			break;
 		case 0:
+			printf("已退出程序\n");
 			break;
 		default:
 			printf("输入错误");
