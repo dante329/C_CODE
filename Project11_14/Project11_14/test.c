@@ -28,25 +28,26 @@ int main()
 		scanf("%d", &input);
 		switch (input)
 		{
-		case 1:
+		case Add:
 			Contact_Add(&con);
 			break;
-		case 2:
+		case Del:
 			Contact_Del(&con);
 			break;
-		case 3:
+		case Modify:
 			Contact_Modify(&con);
 			break;
-		case 4:
+		case Print:
 			Contact_Print(&con);
 			break;
-		case 5:
+		case Sort:
 			Contact_Sort(&con);
 			break;
-		case 6:
+		case Search:
 			Contact_Search(&con);
 			break;
-		case 0:
+		case Exit:
+			Destory_Mem(&con);
 			printf("ÒÑÍË³ö³ÌÐò\n");
 			break;
 		default:
