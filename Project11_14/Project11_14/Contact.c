@@ -27,24 +27,6 @@ static int FindbyName(Contact* pc)
 	}
 }
 
-//静态内存版本
-//void InitContact(Contact* pc)
-//{
-//	pc->count = 0;
-//	memset(pc->data, 0, sizeof(pc->data));
-//}
-
-//动态内存版本
-void InitContact(Contact* pc)
-{
-	pc->count = 0;
-	pc->data = (PeoInfo*)calloc(DEFUALT_SZ, sizeof(PeoInfo));
-	if (pc->data == NULL)
-	{
-		printf("InitContact::%s\n", strerror(errno));
-	}
-	pc->capacity = DEFUALT_SZ;
-}
 void CheckCapacity(Contact* pc)
 {
 	if (pc->count == pc->capacity)
@@ -64,7 +46,50 @@ void CheckCapacity(Contact* pc)
 	}
 	printf("增容成功\n");
 }
-	
+
+void LoadContact(Contact* pc)
+{
+	assert(pc);
+	if (pc == 0)
+	{
+		perror("LoadContact");
+		return;
+	}
+	FILE* pf = fopen("Contact.txt", "rb");
+	//PeoInfo* ptr = malloc(sizeof(PeoInfo*));
+	PeoInfo ptr = { 0 };
+	while (fread(&ptr, sizeof(PeoInfo), 1, pf) == 1)
+	{
+		CheckCapacity(pc);
+		pc->data[pc->count] = ptr;
+		pc->count++;	
+	}
+	fclose(pf);
+	pf = NULL;
+
+	//容量3
+}
+
+//静态内存版本
+//void InitContact(Contact* pc)
+//{
+//	pc->count = 0;
+//	memset(pc->data, 0, sizeof(pc->data));
+//}
+
+//动态内存版本
+void InitContact(Contact* pc)
+{
+	pc->count = 0;
+	pc->data = (PeoInfo*)calloc(DEFUALT_SZ, sizeof(PeoInfo));
+	if (pc->data == NULL)
+	{
+		printf("InitContact::%s\n", strerror(errno));
+	}
+	pc->capacity = DEFUALT_SZ;
+	LoadContact(pc);
+}
+
 //静态内存版本
 //void Contact_Add(Contact * pc)
 //{
@@ -221,4 +246,24 @@ void Destory_Mem(Contact* pc)
 	assert(pc);
 	free(pc->data);
 	pc->data = NULL;
+}
+
+//退出程序前执行保存通讯录
+void SaveContact(Contact* pc)
+{
+	assert(pc);
+	FILE* pf = fopen("Contact.txt", "wb");
+	if (pf == NULL)
+	{
+		perror("SaveContact");
+		return;
+	}
+	int i = 0;
+	for (i = 0; i < pc->count; i++)
+	{
+		fwrite(&(pc->data[i]), sizeof(PeoInfo), 1, pf);
+	}
+
+	fclose(pf);
+	pf = NULL;
 }

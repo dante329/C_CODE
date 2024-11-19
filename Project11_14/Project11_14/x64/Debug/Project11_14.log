@@ -1,1 +1,6 @@
-﻿  Project11_14.vcxproj -> D:\C_develop\code\practice\Project11_14\x64\Debug\Project11_14.exe
+﻿  Contact.c
+D:\C_develop\code\practice\Project11_14\Project11_14\Contact.c(156,35): warning C4028: 形参 1 与声明不同
+D:\C_develop\code\practice\Project11_14\Project11_14\Contact.c(190,36): warning C4028: 形参 1 与声明不同
+D:\C_develop\code\practice\Project11_14\Project11_14\Contact.c(194,21): warning C4090: “函数”: 不同的“const”限定符
+D:\C_develop\code\practice\Project11_14\Project11_14\Contact.c(28,1): warning C4715: “FindbyName”: 不是所有的控件路径都返回值
+  Project11_14.vcxproj -> D:\C_develop\code\practice\Project11_14\x64\Debug\Project11_14.exe
