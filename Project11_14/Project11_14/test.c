@@ -47,6 +47,7 @@ int main()
 			Contact_Search(&con);
 			break;
 		case Exit:
+			SaveContact(&con);
 			Destory_Mem(&con);
 			printf("ÒÑÍË³ö³ÌÐò\n");
 			break;

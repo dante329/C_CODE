@@ -69,3 +69,5 @@ void Contact_Search(Contact*);
 void Contact_Modify(Contact*);
 
 void Contact_Sort(Contact*);
+
+void SaveContact(Contact*);
